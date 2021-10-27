@@ -1,0 +1,18 @@
+﻿@model List<Hotel01.Models.CategoryViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+@if (Model != null)
+{
+   <div class="container">
+       <div class="row">
+           <div class="col-md-12 col-xs-12 col-xl-12 col-sm-12">
+               @foreach (var C in Model)
+               {
+                   @Html.Partial("_CategoryPartial",C)
+               }
+           </div>
+       </div>
+   </div>
+}
+

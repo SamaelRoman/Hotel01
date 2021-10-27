@@ -1,0 +1,23 @@
+﻿@model Hotel01.Models.CategoryViewModel
+    
+<div class="row CategoryContainer">
+    <div class="col-md-3 CategoryTitle">
+        <span class="CategoryTitleSpan">@Model.Title</span> 
+        <span class="CategoryPrice">от @Model.CategoryInfos.Find(CI=>CI.PriceAtTheMomentStart <= DateTime.Now && (CI.PriceAtTheMomentEnd >= DateTime.Now || CI.PriceAtTheMomentEnd == null)).Price</span>
+        <span class="CategoryCapacity">сутки / номер<br />
+        до @Model.Capacity человек</span>
+        <div class="CategoryBooking">
+            <a href="" class="btn btn-default CategoryBookingBTN ">Забронировать</a><!--Вставить ссылку на контроле бронирования!.-->
+        </div>
+    </div>
+    <img src="~/Content/Img/@Model.Preview" class="col-md-6 CategoryImg">
+    <div class="col-md-3 CategoryServices">
+        @foreach (var S in Model.Services)
+        {
+        <div class="CategoryService">
+            <img src="~/Content/Pictures/@S.IconUrl"><span>@S.Title</span>
+        </div>
+        }
+        
+    </div>
+</div>
